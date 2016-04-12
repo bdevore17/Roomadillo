@@ -1,0 +1,6 @@
+framework module Pods_Roomadillo {
+  umbrella header "Pods-Roomadillo-umbrella.h"
+
+  export *
+  module * { export * }
+}

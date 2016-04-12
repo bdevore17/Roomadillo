@@ -8,15 +8,44 @@
 
 import UIKit
 import CoreData
+import Parse
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Parse.enableLocalDatastore()
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "plV5QtcyxzEv1BKAgUK2AdCXbHVrKX8lkYMU9Ajm"
+            $0.server = "https://roomadillo-server.herokuapp.com/parse"
+            $0.clientKey = "DNIvlZpk3Q9clJXji1mW0vGn7mSnLgOsufKK50gK"
+        }
+        Roommate.registerSubclass()
+        User.registerSubclass()
+        Swipe.registerSubclass()
+        Parse.initializeWithConfiguration(configuration)
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        let attr = NSDictionary(object: UIFont(name: "Futura-Medium", size: 16.0)!, forKey: NSFontAttributeName)
+        UIBarButtonItem.appearance().setTitleTextAttributes(attr as? [String : AnyObject], forState: .Normal)
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 144/255, blue: 79/255, alpha: 1.0)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as? [String : AnyObject], forState: .Normal)
+        
+//        if PFUser.currentUser() != nil {
+//                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarView")
+//                self.window?.rootViewController = initialViewController
+//                self.window?.makeKeyAndVisible()
+//        }
+        
         return true
     }
 
@@ -36,12 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     // MARK: - Core Data stack

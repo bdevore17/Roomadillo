@@ -14,6 +14,7 @@ class User : PFUser {
     @NSManaged var firstName : String?
     @NSManaged var lastName : String?
     @NSManaged var roommate : Roommate?
+    @NSManaged var viewed : [String]?
     
     override class func initialize() {
         struct Static {
@@ -21,6 +22,28 @@ class User : PFUser {
         }
         dispatch_once(&Static.onceToken) {
             self.registerSubclass()
+        }
+    }
+    
+    func indexInViewed(objectID: String) -> (index: Int, found: Bool) {
+        if(viewed!.isEmpty) {
+            return (0,false)
+        }
+        var low = 0;
+        var high = viewed!.count - 1
+        while (true) {
+            let current = (low + high)/2
+            if(viewed![current] == objectID) {
+                return (current,true)
+            } else if (low > high) {
+                return (low,false)
+            } else {
+                if (viewed![current] > objectID) {
+                    high = current - 1
+                } else {
+                    low = current + 1
+                }
+            }
         }
     }
     

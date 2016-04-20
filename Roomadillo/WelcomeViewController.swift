@@ -71,6 +71,7 @@ class WelcomeViewController: UIViewController {
             user.firstName = result.valueForKey("first_name") as? String
             roommate.firstName = user.firstName
             user.lastName = result.valueForKey("last_name") as? String
+            user.viewed = []
             user.roommate = roommate
             PFObject.saveAllInBackground([user,roommate]) {
                 (success: Bool, error: NSError?) -> Void in

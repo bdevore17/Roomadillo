@@ -18,6 +18,11 @@ class FullProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImageView.image = image
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width / 2
+        self.profileImageView.clipsToBounds = true
+        self.profileImageView.layer.borderWidth = 4
+        self.profileImageView.layer.borderColor = UIColor(red: 255/255, green: 144/255, blue: 79/255, alpha: 1.0).CGColor
+        
         nameLabel.text = firstName
         print(profileImageView)
         // Do any additional setup after loading the view.

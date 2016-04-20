@@ -114,10 +114,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Roommate Search" id="lmO-Pj-eaX">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" id="H3U-1G-zvI">
+                        <barButtonItem key="backBarButtonItem" title=" " id="q0e-hn-ILv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" id="8IX-CU-P4j">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="rwQ-iW-5Bi" kind="show" id="8LD-Hy-p8S"/>
+                                <segue destination="Wcv-lM-uxy" kind="show" identifier="filterSegue" id="EN8-lP-Tvt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -189,39 +190,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKZ-w4-ioi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2064" y="1013"/>
-        </scene>
-        <!--Roommate Criteria-->
-        <scene sceneID="Tf3-Jb-xnd">
-            <objects>
-                <tableViewController id="rwQ-iW-5Bi" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xU8-xv-SlT">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections>
-                            <tableViewSection id="1LW-M7-AtL">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uEw-GR-O1h">
-                                        <rect key="frame" x="0.0" y="35" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uEw-GR-O1h" id="1LG-Ry-nyI">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="rwQ-iW-5Bi" id="tpy-RA-z6Q"/>
-                            <outlet property="delegate" destination="rwQ-iW-5Bi" id="Ubv-kV-Tyr"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Roommate Criteria" id="Z3o-KO-rrW"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7GS-3u-kOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2766" y="282"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="ci1-0N-XXD">
@@ -296,6 +264,7 @@
                         <color key="barTintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -365,7 +334,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Vitals" footerTitle="" id="4zi-h2-iSH">
+                            <tableViewSection headerTitle="Smoking" footerTitle="" id="4zi-h2-iSH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="40D-0U-rFX">
                                         <rect key="frame" x="0.0" y="143.5" width="600" height="44"/>
@@ -395,6 +364,158 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Study Habits" footerTitle="" id="P1D-Z4-AGY">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0at-rr-tmD">
+                                        <rect key="frame" x="0.0" y="237.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0at-rr-tmD" id="ZQs-L0-NCp">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-EN-4LC">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="wgw-Ie-oMm"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="I study in my room"/>
+                                                        <segment title="I don't study in my room"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lvV-EN-4LC" firstAttribute="leading" secondItem="ZQs-L0-NCp" secondAttribute="leading" id="67E-2m-hjc"/>
+                                                <constraint firstItem="lvV-EN-4LC" firstAttribute="top" secondItem="ZQs-L0-NCp" secondAttribute="top" id="RI7-hc-baI"/>
+                                                <constraint firstAttribute="trailing" secondItem="lvV-EN-4LC" secondAttribute="trailing" id="hc4-4z-peN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Sleep Schedule" footerTitle="" id="FeW-zL-R2t">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mDo-qc-KcY">
+                                        <rect key="frame" x="0.0" y="331.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDo-qc-KcY" id="5CJ-p1-U8V">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wake Up Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhM-Pc-4q0">
+                                                    <rect key="frame" x="8" y="0.0" width="118" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="0BR-7K-li4"/>
+                                                        <constraint firstAttribute="width" constant="118" id="nXf-zs-Ibq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="9:00 AM" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xrt-Fg-kgq">
+                                                    <rect key="frame" x="134" y="0.0" width="458" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="TGE-Ii-oDu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rhM-Pc-4q0" firstAttribute="leading" secondItem="5CJ-p1-U8V" secondAttribute="leading" constant="8" id="IM5-8X-757"/>
+                                                <constraint firstItem="rhM-Pc-4q0" firstAttribute="top" secondItem="5CJ-p1-U8V" secondAttribute="top" id="Vep-pX-u5B"/>
+                                                <constraint firstAttribute="trailing" secondItem="xrt-Fg-kgq" secondAttribute="trailing" constant="8" id="XFC-8p-bjb"/>
+                                                <constraint firstItem="xrt-Fg-kgq" firstAttribute="top" secondItem="5CJ-p1-U8V" secondAttribute="top" id="XxR-p7-V3o"/>
+                                                <constraint firstItem="xrt-Fg-kgq" firstAttribute="leading" secondItem="rhM-Pc-4q0" secondAttribute="trailing" constant="8" id="vRI-Mh-e7R"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zei-HW-W00">
+                                        <rect key="frame" x="0.0" y="375.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zei-HW-W00" id="t8c-QT-Lku">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bed Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ib5-9J-TNm">
+                                                    <rect key="frame" x="8" y="0.0" width="118" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="cqg-WB-d7B"/>
+                                                        <constraint firstAttribute="width" constant="118" id="fN1-Mg-kct"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="10:30 AM" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GI0-R7-S4K">
+                                                    <rect key="frame" x="134" y="0.0" width="458" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="dDO-pZ-ZcQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ib5-9J-TNm" firstAttribute="top" secondItem="t8c-QT-Lku" secondAttribute="top" id="CjK-Ib-N1G"/>
+                                                <constraint firstItem="GI0-R7-S4K" firstAttribute="top" secondItem="t8c-QT-Lku" secondAttribute="top" id="TW5-YB-Kde"/>
+                                                <constraint firstAttribute="trailing" secondItem="GI0-R7-S4K" secondAttribute="trailing" constant="8" id="dA6-1I-rVJ"/>
+                                                <constraint firstItem="GI0-R7-S4K" firstAttribute="leading" secondItem="ib5-9J-TNm" secondAttribute="trailing" constant="8" id="jPS-WK-sii"/>
+                                                <constraint firstItem="ib5-9J-TNm" firstAttribute="leading" secondItem="t8c-QT-Lku" secondAttribute="leading" constant="8" id="nS8-bh-7Us"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Cleanliness" footerTitle="" id="0F3-Ga-UXB">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9FR-0P-LSV">
+                                        <rect key="frame" x="0.0" y="469.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9FR-0P-LSV" id="nMD-Eg-TjY">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neat Freak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6K-uh-Qlm">
+                                                    <rect key="frame" x="8" y="0.0" width="96" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="kvu-K5-Dfc"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="qTO-ew-znh"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Massive Slob" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h83-pV-Air">
+                                                    <rect key="frame" x="483" y="0.0" width="109" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="Q8i-Wd-AOi"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="tNS-nf-xkz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="tRA-UK-LpE">
+                                                    <rect key="frame" x="110" y="7" width="367" height="31"/>
+                                                    <color key="minimumTrackTintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="maximumTrackTintColor" red="1" green="0.56470588239999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="h6K-uh-Qlm" firstAttribute="top" secondItem="nMD-Eg-TjY" secondAttribute="top" id="28g-bl-iGb"/>
+                                                <constraint firstItem="h83-pV-Air" firstAttribute="leading" secondItem="tRA-UK-LpE" secondAttribute="trailing" constant="8" id="AFR-je-g4y"/>
+                                                <constraint firstItem="h6K-uh-Qlm" firstAttribute="leading" secondItem="nMD-Eg-TjY" secondAttribute="leading" constant="8" id="R8K-xd-oBI"/>
+                                                <constraint firstItem="tRA-UK-LpE" firstAttribute="centerY" secondItem="nMD-Eg-TjY" secondAttribute="centerY" id="bCK-h7-Kc0"/>
+                                                <constraint firstAttribute="trailing" secondItem="h83-pV-Air" secondAttribute="trailing" constant="8" id="ita-Gs-d3T"/>
+                                                <constraint firstItem="h83-pV-Air" firstAttribute="top" secondItem="nMD-Eg-TjY" secondAttribute="top" id="s8z-1f-MVf"/>
+                                                <constraint firstItem="tRA-UK-LpE" firstAttribute="leading" secondItem="h6K-uh-Qlm" secondAttribute="trailing" constant="8" id="xZ4-dp-9tZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="ITy-jT-wYS" id="JSA-mE-Kcx"/>
@@ -405,12 +526,18 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="VJ7-1m-NxL">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="dua-uN-vhW" kind="presentation" identifier="profileCompletedSegue" id="cjT-AF-AkU"/>
+                                <action selector="doneButtonPressed:" destination="ITy-jT-wYS" id="9WL-Mx-BqW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bedTimeTextField" destination="GI0-R7-S4K" id="UMg-7o-eOS"/>
+                        <outlet property="cleanlinessSlider" destination="tRA-UK-LpE" id="V69-Md-Mk5"/>
                         <outlet property="genderControl" destination="0lK-ur-pex" id="VH9-AX-JnH"/>
+                        <outlet property="smokerControl" destination="MPg-iG-oJJ" id="nPB-8d-6gS"/>
+                        <outlet property="studyControl" destination="lvV-EN-4LC" id="w84-d8-giA"/>
+                        <outlet property="wakeUpTextField" destination="xrt-Fg-kgq" id="7RO-Og-iXx"/>
+                        <segue destination="dua-uN-vhW" kind="presentation" identifier="profileCompletedSegue" id="Jg9-ob-9uZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R7O-kg-99O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -517,6 +644,413 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivR-HU-BqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-910" y="282"/>
+        </scene>
+        <!--Filter Roommates-->
+        <scene sceneID="DON-B0-am4">
+            <objects>
+                <tableViewController id="Wcv-lM-uxy" customClass="FilterTableViewController" customModule="Roomadillo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gCs-KU-54M">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Smoking" footerTitle="" id="MDz-cp-5Mh">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Mb7-YD-a4Q">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mb7-YD-a4Q" id="3in-Co-3qm">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="idM-Vr-m2J">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="TvB-oh-vME"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="Any"/>
+                                                        <segment title="Non-Smoker"/>
+                                                        <segment title="Smoker"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="idM-Vr-m2J" firstAttribute="top" secondItem="3in-Co-3qm" secondAttribute="top" id="2bU-P2-X0x"/>
+                                                <constraint firstAttribute="trailing" secondItem="idM-Vr-m2J" secondAttribute="trailing" id="8uo-FN-Cs5"/>
+                                                <constraint firstItem="idM-Vr-m2J" firstAttribute="leading" secondItem="3in-Co-3qm" secondAttribute="leading" id="C8J-oP-ry0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Study in Room?" footerTitle="" id="htd-is-foF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Bjh-xw-pE5">
+                                        <rect key="frame" x="0.0" y="143.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bjh-xw-pE5" id="2Y4-cL-r3e">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nr0-D2-Qb5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="zpz-uT-40i"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="Any"/>
+                                                        <segment title="Yes"/>
+                                                        <segment title="No"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="nr0-D2-Qb5" secondAttribute="trailing" id="2HE-Cf-pCy"/>
+                                                <constraint firstItem="nr0-D2-Qb5" firstAttribute="top" secondItem="2Y4-cL-r3e" secondAttribute="top" id="OGk-DK-CNv"/>
+                                                <constraint firstItem="nr0-D2-Qb5" firstAttribute="leading" secondItem="2Y4-cL-r3e" secondAttribute="leading" id="OrU-gR-9kJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Sleep Schedule" footerTitle="" id="RGD-zO-8Xv">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="e5Q-RA-RRV">
+                                        <rect key="frame" x="0.0" y="237.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5Q-RA-RRV" id="nw7-3p-VfU">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Wake Up Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avd-Jd-4uv">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="NIf-PR-0bs"/>
+                                                        <constraint firstAttribute="width" constant="175" id="nxf-ox-9hY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fSK-Jw-jyb">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="49" id="PMU-Wv-Li7"/>
+                                                        <constraint firstAttribute="height" constant="31" id="lj3-zg-hE6"/>
+                                                    </constraints>
+                                                    <color key="onTintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="filterWakeUpChanged:" destination="Wcv-lM-uxy" eventType="valueChanged" id="wvi-UU-XFo"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="avd-Jd-4uv" firstAttribute="leading" secondItem="nw7-3p-VfU" secondAttribute="leading" constant="8" id="4Je-2W-hIn"/>
+                                                <constraint firstItem="avd-Jd-4uv" firstAttribute="top" secondItem="nw7-3p-VfU" secondAttribute="top" id="lw2-Ve-1sA"/>
+                                                <constraint firstAttribute="trailing" secondItem="fSK-Jw-jyb" secondAttribute="trailing" constant="8" id="tLL-uM-dL9"/>
+                                                <constraint firstItem="fSK-Jw-jyb" firstAttribute="top" secondItem="nw7-3p-VfU" secondAttribute="top" constant="6" id="yXs-wV-PVv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="LpW-Ws-FZq">
+                                        <rect key="frame" x="0.0" y="281.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LpW-Ws-FZq" id="mVE-V9-LqX">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm9-yZ-8SD">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="175" id="5zn-gW-eUd"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="i0N-ir-avG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bIg-M5-Hxv">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="jLh-rm-04d"/>
+                                                        <constraint firstAttribute="width" constant="49" id="kDA-1Y-CGQ"/>
+                                                    </constraints>
+                                                    <color key="onTintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="filterBedtimeChanged:" destination="Wcv-lM-uxy" eventType="valueChanged" id="lyq-iw-wTq"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bIg-M5-Hxv" firstAttribute="top" secondItem="mVE-V9-LqX" secondAttribute="top" constant="6" id="3Lv-3e-twe"/>
+                                                <constraint firstAttribute="trailing" secondItem="bIg-M5-Hxv" secondAttribute="trailing" constant="8" id="eYg-HI-riE"/>
+                                                <constraint firstItem="Qm9-yZ-8SD" firstAttribute="top" secondItem="mVE-V9-LqX" secondAttribute="top" id="mL5-0Q-xUG"/>
+                                                <constraint firstItem="Qm9-yZ-8SD" firstAttribute="leading" secondItem="mVE-V9-LqX" secondAttribute="leading" constant="8" id="uXz-1d-MMF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bKX-Lh-E6j">
+                                        <rect key="frame" x="0.0" y="325.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bKX-Lh-E6j" id="eKe-6c-0n1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="9:00 AM" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E76-mc-Gfu">
+                                                    <rect key="frame" x="191" y="0.0" width="401" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="LjZ-ed-RJn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earliest Wake Up Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDF-y3-3wc">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="175" id="eRZ-Gd-ewi"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="ssP-hI-S8B"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xDF-y3-3wc" firstAttribute="leading" secondItem="eKe-6c-0n1" secondAttribute="leading" constant="8" id="CAy-VX-VyU"/>
+                                                <constraint firstAttribute="trailing" secondItem="E76-mc-Gfu" secondAttribute="trailing" constant="8" id="Dxo-ca-9Me"/>
+                                                <constraint firstItem="E76-mc-Gfu" firstAttribute="top" secondItem="eKe-6c-0n1" secondAttribute="top" id="bwt-FE-xGC"/>
+                                                <constraint firstItem="E76-mc-Gfu" firstAttribute="leading" secondItem="xDF-y3-3wc" secondAttribute="trailing" constant="8" id="gi5-Ta-E7p"/>
+                                                <constraint firstItem="xDF-y3-3wc" firstAttribute="top" secondItem="eKe-6c-0n1" secondAttribute="top" id="kHN-gi-305"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="su2-ZM-ySg">
+                                        <rect key="frame" x="0.0" y="369.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="su2-ZM-ySg" id="oZk-1g-kcN">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="9:00 AM" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cXr-8w-grT">
+                                                    <rect key="frame" x="191" y="0.0" width="401" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="hdJ-6a-sxp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Wake Up Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0x-Hp-TPr">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="I22-QZ-M1M"/>
+                                                        <constraint firstAttribute="width" constant="175" id="oCy-kU-hsg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Y0x-Hp-TPr" firstAttribute="top" secondItem="oZk-1g-kcN" secondAttribute="top" id="WNr-4z-Df8"/>
+                                                <constraint firstItem="cXr-8w-grT" firstAttribute="top" secondItem="oZk-1g-kcN" secondAttribute="top" id="beP-Yk-9CR"/>
+                                                <constraint firstItem="cXr-8w-grT" firstAttribute="leading" secondItem="Y0x-Hp-TPr" secondAttribute="trailing" constant="8" id="rWu-IQ-mqF"/>
+                                                <constraint firstAttribute="trailing" secondItem="cXr-8w-grT" secondAttribute="trailing" constant="8" id="tyc-HV-sY5"/>
+                                                <constraint firstItem="Y0x-Hp-TPr" firstAttribute="leading" secondItem="oZk-1g-kcN" secondAttribute="leading" constant="8" id="yve-KM-Ajj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KBi-d0-n2E">
+                                        <rect key="frame" x="0.0" y="413.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KBi-d0-n2E" id="q6z-5f-oOj">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="9:00 AM" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nDv-Jm-Mbe">
+                                                    <rect key="frame" x="191" y="0.0" width="401" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="TL5-mA-Oj9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earliest Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzY-8k-wcj">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="175" id="WkS-Ao-oww"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="jPU-U3-AJY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nDv-Jm-Mbe" firstAttribute="top" secondItem="q6z-5f-oOj" secondAttribute="top" id="2dk-Af-svi"/>
+                                                <constraint firstItem="KzY-8k-wcj" firstAttribute="leading" secondItem="q6z-5f-oOj" secondAttribute="leading" constant="8" id="KIl-zw-wwK"/>
+                                                <constraint firstItem="nDv-Jm-Mbe" firstAttribute="leading" secondItem="KzY-8k-wcj" secondAttribute="trailing" constant="8" id="g5c-Ol-WI3"/>
+                                                <constraint firstAttribute="trailing" secondItem="nDv-Jm-Mbe" secondAttribute="trailing" constant="8" id="jMT-RY-gch"/>
+                                                <constraint firstItem="KzY-8k-wcj" firstAttribute="top" secondItem="q6z-5f-oOj" secondAttribute="top" id="yBu-Le-6p0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tlk-ZF-C40">
+                                        <rect key="frame" x="0.0" y="457.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tlk-ZF-C40" id="gNi-Pf-ZYF">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="9:00 AM" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQb-Wr-33x">
+                                                    <rect key="frame" x="191" y="0.0" width="401" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="jAF-BY-Qoc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.25" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Bedtime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="han-U8-H17">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="EqB-pD-wfL"/>
+                                                        <constraint firstAttribute="width" constant="175" id="ujo-Rh-wpx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iQb-Wr-33x" firstAttribute="leading" secondItem="han-U8-H17" secondAttribute="trailing" constant="8" id="Fkp-rA-k0C"/>
+                                                <constraint firstItem="iQb-Wr-33x" firstAttribute="top" secondItem="gNi-Pf-ZYF" secondAttribute="top" id="Ihi-Ij-zDW"/>
+                                                <constraint firstItem="han-U8-H17" firstAttribute="top" secondItem="gNi-Pf-ZYF" secondAttribute="top" id="Wea-Im-4Ly"/>
+                                                <constraint firstAttribute="trailing" secondItem="iQb-Wr-33x" secondAttribute="trailing" constant="8" id="bHO-xY-cXO"/>
+                                                <constraint firstItem="han-U8-H17" firstAttribute="leading" secondItem="gNi-Pf-ZYF" secondAttribute="leading" constant="8" id="rta-Y3-d3e"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Cleanliness" footerTitle="" id="WZJ-mc-woK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9fP-5a-6HQ">
+                                        <rect key="frame" x="0.0" y="551.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9fP-5a-6HQ" id="7lJ-Fb-Vue">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter by Cleanliness?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJC-c8-CZy">
+                                                    <rect key="frame" x="8" y="0.0" width="175" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="9MI-uV-6ZM"/>
+                                                        <constraint firstAttribute="width" constant="175" id="C2C-2e-gXI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mZF-aY-cqR">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="Maw-jW-Lyq"/>
+                                                        <constraint firstAttribute="width" constant="49" id="rgf-SS-KoB"/>
+                                                    </constraints>
+                                                    <color key="onTintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <connections>
+                                                        <action selector="cleanlinessSwitchChanged:" destination="Wcv-lM-uxy" eventType="valueChanged" id="BCY-lP-mdQ"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mZF-aY-cqR" secondAttribute="trailing" constant="8" id="IeW-u4-Sx9"/>
+                                                <constraint firstItem="GJC-c8-CZy" firstAttribute="leading" secondItem="7lJ-Fb-Vue" secondAttribute="leading" constant="8" id="Rvy-6Q-NAN"/>
+                                                <constraint firstItem="GJC-c8-CZy" firstAttribute="top" secondItem="7lJ-Fb-Vue" secondAttribute="top" id="kcf-dj-C6f"/>
+                                                <constraint firstItem="mZF-aY-cqR" firstAttribute="top" secondItem="7lJ-Fb-Vue" secondAttribute="top" constant="6" id="w6Q-ga-Zi9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lqt-C2-yka">
+                                        <rect key="frame" x="0.0" y="595.5" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lqt-C2-yka" id="c3P-i3-mGQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neat Freak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O72-A4-RvC">
+                                                    <rect key="frame" x="8" y="0.0" width="96" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="96" id="BfN-95-qRr"/>
+                                                        <constraint firstAttribute="height" constant="43.5" id="YdI-ft-6JH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Massive Slob" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPq-St-jun">
+                                                    <rect key="frame" x="483" y="0.0" width="109" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="T5M-xM-ahX"/>
+                                                        <constraint firstAttribute="width" constant="109" id="x6t-vL-Nfb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qjm-SB-qFq">
+                                                    <rect key="frame" x="110" y="7" width="367" height="31"/>
+                                                    <color key="minimumTrackTintColor" red="0.0" green="0.33333333329999998" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="maximumTrackTintColor" red="1" green="0.56470588239999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="uPq-St-jun" secondAttribute="trailing" constant="8" id="Jg5-mm-a3O"/>
+                                                <constraint firstItem="qjm-SB-qFq" firstAttribute="leading" secondItem="O72-A4-RvC" secondAttribute="trailing" constant="8" id="Okq-Zs-elT"/>
+                                                <constraint firstItem="uPq-St-jun" firstAttribute="top" secondItem="c3P-i3-mGQ" secondAttribute="top" id="aQX-4N-212"/>
+                                                <constraint firstItem="uPq-St-jun" firstAttribute="leading" secondItem="qjm-SB-qFq" secondAttribute="trailing" constant="8" id="f4i-GQ-sIo"/>
+                                                <constraint firstItem="qjm-SB-qFq" firstAttribute="centerY" secondItem="c3P-i3-mGQ" secondAttribute="centerY" id="fNP-s7-enr"/>
+                                                <constraint firstItem="O72-A4-RvC" firstAttribute="leading" secondItem="c3P-i3-mGQ" secondAttribute="leading" constant="8" id="jU7-Mv-2r2"/>
+                                                <constraint firstItem="O72-A4-RvC" firstAttribute="top" secondItem="c3P-i3-mGQ" secondAttribute="top" id="x4O-GO-AE0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Wcv-lM-uxy" id="Mjq-xY-pCS"/>
+                            <outlet property="delegate" destination="Wcv-lM-uxy" id="oQ7-XH-z8e"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Filter Roommates" id="1f4-DB-rOv">
+                        <barButtonItem key="rightBarButtonItem" title="Apply" id="tkg-M4-cw9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="filterButtonPressed:" destination="Wcv-lM-uxy" id="aSL-cj-5ur"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cleanlinessCell" destination="lqt-C2-yka" id="Us0-wL-lWZ"/>
+                        <outlet property="cleanlinessSlider" destination="qjm-SB-qFq" id="XqE-Gi-qdy"/>
+                        <outlet property="cleanlinessSwitch" destination="mZF-aY-cqR" id="z9K-Ne-bjg"/>
+                        <outlet property="earliestBedtimeField" destination="nDv-Jm-Mbe" id="dQb-rH-JZp"/>
+                        <outlet property="earliestWakeUpField" destination="E76-mc-Gfu" id="7zk-h7-7Ra"/>
+                        <outlet property="filterBedtimeSwitch" destination="bIg-M5-Hxv" id="6Ip-Mx-UqL"/>
+                        <outlet property="filterWakeUpTimeSwitch" destination="fSK-Jw-jyb" id="Acy-tA-0Rq"/>
+                        <outlet property="latestBedtimeField" destination="iQb-Wr-33x" id="bdY-SX-t85"/>
+                        <outlet property="latestWakeUpField" destination="cXr-8w-grT" id="ubl-Ba-thI"/>
+                        <outlet property="smokerControl" destination="idM-Vr-m2J" id="4mf-eZ-FC1"/>
+                        <outlet property="studyInRoomControl" destination="nr0-D2-Qb5" id="wlf-nO-1Bs"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ko-Rc-FOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2778" y="298"/>
         </scene>
     </scenes>
     <resources>

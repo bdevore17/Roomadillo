@@ -22,10 +22,13 @@
 		383477071C851FCC007E848E /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383477061C851FCC007E848E /* ExampleOverlayView.swift */; };
 		3858F1431CBC45EA00986667 /* FullProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3858F1421CBC45EA00986667 /* FullProfileViewController.swift */; };
 		3858F1451CBD903400986667 /* CompleteProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3858F1441CBD903400986667 /* CompleteProfileTableViewController.swift */; };
+		3858F1471CBDA47200986667 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3858F1461CBDA47200986667 /* Keyboard.swift */; };
 		388FE3011CAB243800F47DE6 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FE3001CAB243800F47DE6 /* WelcomeViewController.swift */; };
 		388FE3031CAB28FE00F47DE6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FE3021CAB28FE00F47DE6 /* User.swift */; };
 		388FE3051CAB3D7000F47DE6 /* Roommate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FE3041CAB3D7000F47DE6 /* Roommate.swift */; };
 		388FE3071CB1FA2A00F47DE6 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FE3061CB1FA2A00F47DE6 /* Swipe.swift */; };
+		38B1C9B21CBEE830003FD124 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1C9B11CBEE830003FD124 /* FilterTableViewController.swift */; };
+		38B1C9B41CBEE876003FD124 /* FilterTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1C9B31CBEE876003FD124 /* FilterTableViewControllerDelegate.swift */; };
 		38B299751CB5AB8500865D34 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B299741CB5AB8500865D34 /* TabBarViewController.swift */; };
 		38F205531CB3804500247DCF /* MatchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F205521CB3804500247DCF /* MatchesTableViewController.swift */; };
 		38F205551CB4288000247DCF /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F205541CB4288000247DCF /* MatchTableViewCell.swift */; };
@@ -70,10 +73,13 @@
 		383477061C851FCC007E848E /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		3858F1421CBC45EA00986667 /* FullProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullProfileViewController.swift; sourceTree = "<group>"; };
 		3858F1441CBD903400986667 /* CompleteProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteProfileTableViewController.swift; sourceTree = "<group>"; };
+		3858F1461CBDA47200986667 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		388FE3001CAB243800F47DE6 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		388FE3021CAB28FE00F47DE6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		388FE3041CAB3D7000F47DE6 /* Roommate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roommate.swift; sourceTree = "<group>"; };
 		388FE3061CB1FA2A00F47DE6 /* Swipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
+		38B1C9B11CBEE830003FD124 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		38B1C9B31CBEE876003FD124 /* FilterTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		38B299741CB5AB8500865D34 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		38F205521CB3804500247DCF /* MatchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewController.swift; sourceTree = "<group>"; };
 		38F205541CB4288000247DCF /* MatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,7 +145,10 @@
 				381EF3D81C7CD34000826BE8 /* ViewController.swift */,
 				381EF3DA1C7CD34000826BE8 /* Main.storyboard */,
 				3858F1441CBD903400986667 /* CompleteProfileTableViewController.swift */,
+				3858F1461CBDA47200986667 /* Keyboard.swift */,
 				3858F1421CBC45EA00986667 /* FullProfileViewController.swift */,
+				38B1C9B11CBEE830003FD124 /* FilterTableViewController.swift */,
+				38B1C9B31CBEE876003FD124 /* FilterTableViewControllerDelegate.swift */,
 				38B299741CB5AB8500865D34 /* TabBarViewController.swift */,
 				38F205541CB4288000247DCF /* MatchTableViewCell.swift */,
 				38F205521CB3804500247DCF /* MatchesTableViewController.swift */,
@@ -385,8 +394,11 @@
 				388FE3051CAB3D7000F47DE6 /* Roommate.swift in Sources */,
 				388FE3031CAB28FE00F47DE6 /* User.swift in Sources */,
 				381EF3D91C7CD34000826BE8 /* ViewController.swift in Sources */,
+				38B1C9B21CBEE830003FD124 /* FilterTableViewController.swift in Sources */,
+				3858F1471CBDA47200986667 /* Keyboard.swift in Sources */,
 				381EF3DF1C7CD34000826BE8 /* Roomadillo.xcdatamodeld in Sources */,
 				3858F1431CBC45EA00986667 /* FullProfileViewController.swift in Sources */,
+				38B1C9B41CBEE876003FD124 /* FilterTableViewControllerDelegate.swift in Sources */,
 				38F205551CB4288000247DCF /* MatchTableViewCell.swift in Sources */,
 				3858F1451CBD903400986667 /* CompleteProfileTableViewController.swift in Sources */,
 				388FE3071CB1FA2A00F47DE6 /* Swipe.swift in Sources */,

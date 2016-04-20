@@ -33,18 +33,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let attr = NSDictionary(object: UIFont(name: "Futura-Medium", size: 16.0)!, forKey: NSFontAttributeName)
         UIBarButtonItem.appearance().setTitleTextAttributes(attr as? [String : AnyObject], forState: .Normal)
-        
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         UITabBar.appearance().tintColor = UIColor(red: 255/255, green: 144/255, blue: 79/255, alpha: 1.0)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as? [String : AnyObject], forState: .Normal)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UIBarButtonItem.appearance().setTitleTextAttributes(attr as? [String : AnyObject], forState: .Normal)
         
-//        if PFUser.currentUser() != nil {
-//                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarView")
-//                self.window?.rootViewController = initialViewController
-//                self.window?.makeKeyAndVisible()
-//        }
+        if PFUser.currentUser() != nil {
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarView")
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+        }
         
         return true
     }
@@ -52,6 +53,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+//        if let user = PFUser.currentUser() as? User {
+//            do {
+//                print("before fetch")
+//                try user.roommate?.fetchFromLocalDatastore()
+//                user.roommate?.saveEventually()
+//            } catch {
+//                print("roommate not found")
+//            }
+//        }
     }
 
     func applicationDidEnterBackground(application: UIApplication) {

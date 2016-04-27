@@ -94,7 +94,7 @@ class CompleteProfileTableViewController: UITableViewController, UITextFieldDele
         let roommate = user?.roommate
         roommate?.male = genderControl.selectedSegmentIndex == 0
         roommate?.smoker = smokerControl.selectedSegmentIndex == 1
-        roommate?.studyInRoom = smokerControl.selectedSegmentIndex == 0
+        roommate?.studyInRoom = studyControl.selectedSegmentIndex == 0
         let calendar = NSCalendar.currentCalendar()
         var comp = calendar.components([.Hour, .Minute], fromDate: wakeUpTime!)
         roommate?.wakeUp = Double(comp.hour) + (Double(comp.minute) / 60)

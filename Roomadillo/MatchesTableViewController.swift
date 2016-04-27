@@ -17,12 +17,15 @@ class MatchesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MatchesTableViewController.loadMatches), name: "newMatchFound", object: nil)
-        loadMatches()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        loadMatches()
     }
     
     func loadMatches() {
@@ -40,6 +43,7 @@ class MatchesTableViewController: UITableViewController {
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if let swipes = objects as? [Swipe] {
+                self.matches = []
                 for swipe in swipes {
                     var match = swipe.roommate1
                     //print(swipe.roommate1?.objectId == self.user.roommate?.objectId)
@@ -136,14 +140,18 @@ class MatchesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "matchSegue" {
+            if let destination = segue.destinationViewController as? MatchProfileViewController {
+                destination.roommateData = matches[tableView.indexPathForSelectedRow!.row]
+                tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
+            }
+        }
     }
-    */
 
 }

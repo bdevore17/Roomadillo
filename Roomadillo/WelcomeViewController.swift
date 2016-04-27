@@ -32,13 +32,16 @@ class WelcomeViewController: UIViewController {
                 //                let installation = PFInstallation.currentInstallation()
                 //                installation["user"] = user
                 //                installation.saveEventually()
-                if user.isNew || user.firstName == nil {
+                if user.isNew {
                     print("User signed up and logged in through Facebook!")
                     self.fetchData()
                 }
+                else if user.phoneNumber == nil {
+                    self.performSegueWithIdentifier("welcomeSegue", sender: self)
+                }
                 else {
                     print("User logged in through Facebook!")
-                    self.performSegueWithIdentifier("welcomeSegue", sender: self)
+                    self.performSegueWithIdentifier("loggedInSegue", sender: self)
                 }
             } else {
                 print(error?.description)
@@ -58,6 +61,11 @@ class WelcomeViewController: UIViewController {
             }
             let user : User = PFUser.currentUser() as! User
             let roommate = Roommate()
+            let acl = PFACL()
+            acl.publicReadAccess = true
+            acl.publicWriteAccess = false
+            acl.setWriteAccess(true, forUser: user)
+            roommate.ACL = acl
             if let photoURL = result.valueForKey("picture")?.valueForKey("data")?.valueForKey("url") as? String {
                 let profilepictureURL = NSURL(string: photoURL)
                 let photo = NSData(contentsOfURL: profilepictureURL!)
@@ -73,6 +81,7 @@ class WelcomeViewController: UIViewController {
             user.lastName = result.valueForKey("last_name") as? String
             user.viewed = []
             user.roommate = roommate
+            user.ACL = PFACL(user: user)
             PFObject.saveAllInBackground([user,roommate]) {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {

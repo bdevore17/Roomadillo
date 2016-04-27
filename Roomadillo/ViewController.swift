@@ -9,6 +9,9 @@
 import UIKit
 import Koloda
 import Parse
+import JDStatusBarNotification
+import KVNProgress
+import SIAlertView
 
 class ViewController: UIViewController {
     
@@ -20,6 +23,7 @@ class ViewController: UIViewController {
     var roommates : [Roommate] = []
     let user : User = PFUser.currentUser() as! User
     var filterQuery : PFQuery?
+    var profileUpdated = false
     
     //MARK: Lifecycle
     override func viewDidLoad() {
@@ -27,10 +31,14 @@ class ViewController: UIViewController {
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.updateNeeded), name: "userProfileUpdated", object: nil)
         
-        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+    self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
         rightButton.tintColor = UIColor.whiteColor()
         leftButton.tintColor = UIColor.whiteColor()
+        setKVNConfiguration()
+        statusBarSetup()
+        KVNProgress.showWithStatus("Loading")
         user.roommate?.fetchIfNeededInBackgroundWithBlock {
             (object: PFObject?, error: NSError?) -> Void in
             if(error == nil){
@@ -39,6 +47,39 @@ class ViewController: UIViewController {
                 }
                 self.loadRoommates(self.filterQuery)
             }
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(profileUpdated){
+            profileUpdated = false
+            loadRoommates(filterQuery)
+        }
+    }
+    
+    func updateNeeded() {
+        profileUpdated = true
+    }
+    
+    func setKVNConfiguration() {
+        let configuration = KVNProgressConfiguration.defaultConfiguration()
+        configuration.backgroundTintColor = UIColor(red: 0/255, green: 85/255, blue: 128/255, alpha: 1.0)
+        configuration.backgroundFillColor = UIColor(red: 0/255, green: 85/255, blue: 128/255, alpha: 1.0)
+        configuration.errorColor = UIColor.whiteColor()
+        configuration.statusColor = UIColor.whiteColor()
+        configuration.circleStrokeForegroundColor = UIColor.whiteColor()
+        configuration.minimumErrorDisplayTime = 3
+        KVNProgress.setConfiguration(configuration)
+    }
+    
+    func statusBarSetup() {
+        JDStatusBarNotification.addStyleNamed("roomadilloStyle") {
+            style in
+            style.barColor = UIColor(red: 255/255, green: 144/255, blue: 79/255, alpha: 1.0)
+            style.textColor = UIColor.whiteColor()
+            style.animationType = .Bounce
+            style.font = UIFont(name: "Futura-Medium", size: 12.0)
+            return style
         }
     }
     
@@ -63,6 +104,7 @@ class ViewController: UIViewController {
     }
     
     func loadRoommates(q : PFQuery?) {
+        KVNProgress.showWithStatus("Loading")
         roommates = []
         photos = []
         self.numberOfCards = 0
@@ -82,15 +124,27 @@ class ViewController: UIViewController {
                 if let roommates = results as? [Roommate] {
                     for roommate in roommates {
                         let file = roommate.photo
+                        print(roommate.firstName)
                         file?.getDataInBackgroundWithBlock {
                             (data: NSData?, error: NSError?) -> Void in
                             if(error == nil){
                                 self.roommates.append(roommate)
                                 self.photos.append(UIImage(data: data!)!)
                                 self.numberOfCards = UInt(self.photos.count)
-                                self.kolodaView.reloadData()
+                                if(self.photos.count == roommates.count){
+                                    KVNProgress.dismiss()
+                                    self.kolodaView.reloadData()
+                                }
                             }
                         }
+                    }
+                    if roommates.count == 0 {
+                        let delay = 1 * Double(NSEC_PER_SEC)
+                        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        dispatch_after(time, dispatch_get_main_queue()) {
+                            KVNProgress.showErrorWithStatus("No Profiles to Show.")
+                        }
+                        
                     }
                 }
             }
@@ -102,7 +156,7 @@ class ViewController: UIViewController {
         if segue.identifier == "profileSegue" {
             if let destination = segue.destinationViewController as? FullProfileViewController {
                 destination.image = photos[kolodaView.currentCardNumber]
-                destination.firstName = roommates[kolodaView.currentCardNumber].firstName
+                destination.roommateData = roommates[kolodaView.currentCardNumber]
             }
         }
         else if segue.identifier == "filterSegue" {
@@ -127,6 +181,7 @@ extension ViewController: KolodaViewDelegate {
                 print(response)
                 if(response as! Bool == true){
                     NSNotificationCenter.defaultCenter().postNotificationName("newMatchFound", object: nil)
+                    JDStatusBarNotification.showWithStatus("Match Found!", dismissAfter: 2.0, styleName: "roomadilloStyle")
                 }
                 print("hello from cloud code")
             }
@@ -159,7 +214,7 @@ extension ViewController: KolodaViewDataSource {
         profileView.nameLabel.text = roommates[Int(index)].firstName
         profileView.profileImageView.image = photos[Int(index)]
         return profileView
-          //return UIImageView(image: photos[Int(index)])
+        //return UIImageView(image: photos[Int(index)])
     }
 }
 

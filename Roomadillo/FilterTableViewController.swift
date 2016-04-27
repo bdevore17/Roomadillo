@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SIAlertView
 
 class FilterTableViewController: UITableViewController {
     
@@ -31,7 +32,7 @@ class FilterTableViewController: UITableViewController {
     var latestBedtime : NSDate?
     
     var datePicker : UIDatePicker?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cleanlinessCell.hidden = !(cleanlinessSwitch.on)
@@ -46,7 +47,7 @@ class FilterTableViewController: UITableViewController {
         earliestBedtimeField.inputAccessoryView = Keyboard.doneButtonAccessoryView("earliestBedtimeDonePressed", target: self)
         latestBedtimeField.inputAccessoryView = Keyboard.doneButtonAccessoryView("latestBedtimeDonePressed", target: self)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -116,6 +117,11 @@ class FilterTableViewController: UITableViewController {
     
     
     @IBAction func filterButtonPressed(sender: UIBarButtonItem) {
+        
+        if(!checkFields()){
+            return
+        }
+        
         var smoker : Bool?
         var studyInRoom : Bool?
         var earliestWakeUpHour : NSNumber?
@@ -150,18 +156,54 @@ class FilterTableViewController: UITableViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    func checkFields() -> Bool {
+        if(filterWakeUpTimeSwitch.on){
+            if(earliestWakeup == nil){
+                throwAlert("Earliest Wake Up")
+                return false
+            }
+            else if(latestWakeup == nil){
+                throwAlert("Latest Wake Up")
+                return false
+            }
+        }
+        else if(filterBedtimeSwitch.on){
+            if(earliestBedtime == nil){
+                throwAlert("Earliest Bedtime")
+                return false
+            }
+            else if(latestBedtime == nil) {
+                throwAlert("Latest Bedtime")
+                return false
+            }
+        }
+        return true
+    }
+    
+    func throwAlert(fieldName: String) {
+        let alertView = SIAlertView(title: "\(fieldName) Not Valid!", andMessage: "Please enter a valid \(fieldName.lowercaseString).")
+        alertView.cornerRadius = 10
+        alertView.backgroundStyle = .Gradient
+        alertView.addButtonWithTitle("Got it!", type: .Cancel, handler: nil)
+        alertView.titleFont = UIFont(name: "Futura-Medium", size: 20.0)
+        alertView.buttonFont = UIFont(name: "Futura-Medium", size: 14.0)
+        alertView.messageFont = UIFont(name: "Futura-Medium", size: 16.0)
+        alertView.cancelButtonColor = UIColor.redColor()
+        alertView.show()
+    }
+    
     func earliestWakeUpDonePressed() {
         earliestWakeUpField.endEditing(true)
     }
-
+    
     func latestWakeUpDonePressed() {
         latestWakeUpField.endEditing(true)
     }
-
+    
     func earliestBedtimeDonePressed() {
         earliestBedtimeField.endEditing(true)
     }
-
+    
     func latestBedtimeDonePressed() {
         latestBedtimeField.endEditing(true)
     }
@@ -186,7 +228,7 @@ class FilterTableViewController: UITableViewController {
     }
     
     
-
+    
 }
 
 
@@ -202,7 +244,7 @@ extension FilterTableViewController : UITextFieldDelegate {
             earliestWakeup = datePicker?.date
             break
         case latestWakeUpField:
-        latestWakeup = datePicker?.date
+            latestWakeup = datePicker?.date
             break
         case earliestBedtimeField:
             earliestBedtime = datePicker?.date
@@ -238,7 +280,5 @@ extension FilterTableViewController : UITextFieldDelegate {
         }
         datePicker?.date = date!
     }
-    
-    
     
 }

@@ -84,24 +84,30 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Roomadillo/BEMAnalogClock.framework"
   install_framework "Pods-Roomadillo/Bolts.framework"
   install_framework "Pods-Roomadillo/FBSDKCoreKit.framework"
   install_framework "Pods-Roomadillo/FBSDKLoginKit.framework"
   install_framework "Pods-Roomadillo/FBSDKShareKit.framework"
-  install_framework "Pods-Roomadillo/FoldingTabBar.framework"
+  install_framework "Pods-Roomadillo/JDStatusBarNotification.framework"
+  install_framework "Pods-Roomadillo/KVNProgress.framework"
   install_framework "Pods-Roomadillo/Koloda.framework"
   install_framework "Pods-Roomadillo/Parse.framework"
   install_framework "Pods-Roomadillo/ParseFacebookUtilsV4.framework"
+  install_framework "Pods-Roomadillo/SIAlertView.framework"
   install_framework "Pods-Roomadillo/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Roomadillo/BEMAnalogClock.framework"
   install_framework "Pods-Roomadillo/Bolts.framework"
   install_framework "Pods-Roomadillo/FBSDKCoreKit.framework"
   install_framework "Pods-Roomadillo/FBSDKLoginKit.framework"
   install_framework "Pods-Roomadillo/FBSDKShareKit.framework"
-  install_framework "Pods-Roomadillo/FoldingTabBar.framework"
+  install_framework "Pods-Roomadillo/JDStatusBarNotification.framework"
+  install_framework "Pods-Roomadillo/KVNProgress.framework"
   install_framework "Pods-Roomadillo/Koloda.framework"
   install_framework "Pods-Roomadillo/Parse.framework"
   install_framework "Pods-Roomadillo/ParseFacebookUtilsV4.framework"
+  install_framework "Pods-Roomadillo/SIAlertView.framework"
   install_framework "Pods-Roomadillo/pop.framework"
 fi

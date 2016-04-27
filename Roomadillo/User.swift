@@ -15,6 +15,7 @@ class User : PFUser {
     @NSManaged var lastName : String?
     @NSManaged var roommate : Roommate?
     @NSManaged var viewed : [String]?
+    @NSManaged var phoneNumber : String?
     
     override class func initialize() {
         struct Static {

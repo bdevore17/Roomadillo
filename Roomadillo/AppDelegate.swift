@@ -11,6 +11,7 @@ import CoreData
 import Parse
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
+import SIAlertView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

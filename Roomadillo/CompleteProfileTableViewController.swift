@@ -8,9 +8,12 @@
 
 import UIKit
 import Parse
+import SIAlertView
 
 class CompleteProfileTableViewController: UITableViewController, UITextFieldDelegate {
 
+    @IBOutlet var phoneNumberField: UITextField!
+    
     @IBOutlet var genderControl: UISegmentedControl!
     
     @IBOutlet var smokerControl: UISegmentedControl!
@@ -21,6 +24,7 @@ class CompleteProfileTableViewController: UITableViewController, UITextFieldDele
     @IBOutlet var bedTimeTextField: UITextField!
     
     @IBOutlet var cleanlinessSlider: UISlider!
+    var phoneNumberDelegate = PhoneNumberTextFieldDelegate()
     
     let datePicker = UIDatePicker()
     var wakeUpTime : NSDate?
@@ -37,7 +41,8 @@ class CompleteProfileTableViewController: UITableViewController, UITextFieldDele
         bedTimeTextField.inputView = datePicker
         bedTimeTextField.inputAccessoryView = Keyboard.doneButtonAccessoryView("bedTimeDonePressed", target: self)
         bedTimeTextField.delegate = self
-        
+        phoneNumberField.delegate = phoneNumberDelegate
+        phoneNumberField.inputAccessoryView = Keyboard.doneButtonAccessoryView("phoneNumberDonePressed", target: self)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -73,9 +78,19 @@ class CompleteProfileTableViewController: UITableViewController, UITextFieldDele
         bedTimeTextField.endEditing(true)
     }
     
+    func phoneNumberDonePressed() {
+        phoneNumberField.endEditing(true)
+    }
+    
     @IBAction func doneButtonPressed(sender: UIBarButtonItem) {
         self.resignFirstResponder()
+        
+        if(!checkFields()) {
+            return
+        }
+        
         let user = PFUser.currentUser() as? User
+        user?.phoneNumber = self.phoneNumberField.text
         let roommate = user?.roommate
         roommate?.male = genderControl.selectedSegmentIndex == 0
         roommate?.smoker = smokerControl.selectedSegmentIndex == 1
@@ -86,8 +101,44 @@ class CompleteProfileTableViewController: UITableViewController, UITextFieldDele
         comp = calendar.components([.Hour, .Minute], fromDate:  bedTime!)
         roommate?.bedtime = Double(comp.hour) + (Double(comp.minute) / 60)
         roommate?.cleanliness = cleanlinessSlider.value
-        roommate?.saveEventually()
-        self.performSegueWithIdentifier("profileCompletedSegue", sender: self)
+        PFObject.saveAllInBackground([user!, roommate!]) {
+            (success: Bool, error: NSError?) -> Void in
+            if(error == nil) {
+                self.performSegueWithIdentifier("profileCompletedSegue", sender: self)
+            }
+            else {
+                print(error?.description)
+            }
+
+        }
+    }
+    
+    func checkFields() -> Bool {
+        if(phoneNumberField.text?.characters.count != 14) {
+            throwAlert("Phone Number")
+            return false
+        }
+        else if(wakeUpTime == nil) {
+            throwAlert("Wake Up Time")
+            return false
+        }
+        else if(bedTime == nil) {
+            throwAlert("Bedtime")
+            return false
+        }
+        return true
+    }
+    
+    func throwAlert(fieldName: String) {
+        let alertView = SIAlertView(title: "\(fieldName) Not Valid!", andMessage: "Please enter a valid \(fieldName.lowercaseString).")
+        alertView.cornerRadius = 10
+        alertView.backgroundStyle = .Gradient
+        alertView.addButtonWithTitle("Got it!", type: .Cancel, handler: nil)
+        alertView.titleFont = UIFont(name: "Futura-Medium", size: 20.0)
+        alertView.buttonFont = UIFont(name: "Futura-Medium", size: 14.0)
+        alertView.messageFont = UIFont(name: "Futura-Medium", size: 16.0)
+        alertView.cancelButtonColor = UIColor.redColor()
+        alertView.show()
     }
     
     // MARK: - Navigation

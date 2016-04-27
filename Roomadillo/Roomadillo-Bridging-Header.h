@@ -10,6 +10,8 @@
 #define Roomadillo_Bridging_Header_h
 
 #import <UIKit/UIKit.h>
-#import <
+#import <JDStatusBarNotification/JDStatusBarNotification.h>
+#import <KVNProgress/KVNProgress.h>
+
 
 #endif /* Roomadillo_Bridging_Header_h */

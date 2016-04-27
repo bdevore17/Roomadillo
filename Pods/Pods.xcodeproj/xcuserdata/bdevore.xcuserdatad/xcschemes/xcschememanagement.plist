@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BEMAnalogClock.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,7 +29,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FoldingTabBar.xcscheme</key>
+		<key>JDStatusBarNotification.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KVNProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,6 +59,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SIAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +72,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0186EE20AB4D310515B8041966DB7AEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0EB19C1377A747F81110D44E2D5FCF78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0F52284BB73D7CF6A946B01B92E4E07F</key>
+		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
+		<key>35FAFEC4CC2C2EBECEE1C9DCC300D424</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +112,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>719A1BF7391801E22A6E1952A7E7431F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8978C7FB7007A28B676AB1EA004C3923</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C065274424FDEBB1B3F9F2298927DC1E</key>
+		<key>9EF87EB025DC5EE4DA906942E2A6D90A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A93D40A73EF61F52D38BFE9A62E37398</key>
 		<dict>
 			<key>primary</key>
 			<true/>

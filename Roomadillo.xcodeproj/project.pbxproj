@@ -30,6 +30,10 @@
 		38B1C9B21CBEE830003FD124 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1C9B11CBEE830003FD124 /* FilterTableViewController.swift */; };
 		38B1C9B41CBEE876003FD124 /* FilterTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B1C9B31CBEE876003FD124 /* FilterTableViewControllerDelegate.swift */; };
 		38B299751CB5AB8500865D34 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B299741CB5AB8500865D34 /* TabBarViewController.swift */; };
+		38D330871CCEE9D000B48DC6 /* MatchProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D330861CCEE9D000B48DC6 /* MatchProfileViewController.swift */; };
+		38D330891CCFCF7900B48DC6 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D330881CCFCF7900B48DC6 /* MoreTableViewController.swift */; };
+		38D3308B1CCFD54000B48DC6 /* PhoneNumberTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3308A1CCFD54000B48DC6 /* PhoneNumberTextFieldDelegate.swift */; };
+		38D3308D1CD0336B00B48DC6 /* UpdateProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3308C1CD0336B00B48DC6 /* UpdateProfileTableViewController.swift */; };
 		38F205531CB3804500247DCF /* MatchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F205521CB3804500247DCF /* MatchesTableViewController.swift */; };
 		38F205551CB4288000247DCF /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F205541CB4288000247DCF /* MatchTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +85,10 @@
 		38B1C9B11CBEE830003FD124 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		38B1C9B31CBEE876003FD124 /* FilterTableViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewControllerDelegate.swift; sourceTree = "<group>"; };
 		38B299741CB5AB8500865D34 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		38D330861CCEE9D000B48DC6 /* MatchProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchProfileViewController.swift; sourceTree = "<group>"; };
+		38D330881CCFCF7900B48DC6 /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		38D3308A1CCFD54000B48DC6 /* PhoneNumberTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextFieldDelegate.swift; sourceTree = "<group>"; };
+		38D3308C1CD0336B00B48DC6 /* UpdateProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateProfileTableViewController.swift; sourceTree = "<group>"; };
 		38F205521CB3804500247DCF /* MatchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewController.swift; sourceTree = "<group>"; };
 		38F205541CB4288000247DCF /* MatchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		97EF2AB8746057DE19894120 /* Pods-Roomadillo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomadillo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomadillo/Pods-Roomadillo.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +152,10 @@
 				381EDEF91CB728730031D7EB /* RoommateProfileView.swift */,
 				381EF3D81C7CD34000826BE8 /* ViewController.swift */,
 				381EF3DA1C7CD34000826BE8 /* Main.storyboard */,
+				38D3308C1CD0336B00B48DC6 /* UpdateProfileTableViewController.swift */,
+				38D3308A1CCFD54000B48DC6 /* PhoneNumberTextFieldDelegate.swift */,
+				38D330881CCFCF7900B48DC6 /* MoreTableViewController.swift */,
+				38D330861CCEE9D000B48DC6 /* MatchProfileViewController.swift */,
 				3858F1441CBD903400986667 /* CompleteProfileTableViewController.swift */,
 				3858F1461CBDA47200986667 /* Keyboard.swift */,
 				3858F1421CBC45EA00986667 /* FullProfileViewController.swift */,
@@ -390,16 +402,20 @@
 				383477071C851FCC007E848E /* ExampleOverlayView.swift in Sources */,
 				388FE3011CAB243800F47DE6 /* WelcomeViewController.swift in Sources */,
 				38B299751CB5AB8500865D34 /* TabBarViewController.swift in Sources */,
+				38D330891CCFCF7900B48DC6 /* MoreTableViewController.swift in Sources */,
 				38F205531CB3804500247DCF /* MatchesTableViewController.swift in Sources */,
 				388FE3051CAB3D7000F47DE6 /* Roommate.swift in Sources */,
 				388FE3031CAB28FE00F47DE6 /* User.swift in Sources */,
 				381EF3D91C7CD34000826BE8 /* ViewController.swift in Sources */,
+				38D3308B1CCFD54000B48DC6 /* PhoneNumberTextFieldDelegate.swift in Sources */,
 				38B1C9B21CBEE830003FD124 /* FilterTableViewController.swift in Sources */,
 				3858F1471CBDA47200986667 /* Keyboard.swift in Sources */,
 				381EF3DF1C7CD34000826BE8 /* Roomadillo.xcdatamodeld in Sources */,
 				3858F1431CBC45EA00986667 /* FullProfileViewController.swift in Sources */,
 				38B1C9B41CBEE876003FD124 /* FilterTableViewControllerDelegate.swift in Sources */,
+				38D330871CCEE9D000B48DC6 /* MatchProfileViewController.swift in Sources */,
 				38F205551CB4288000247DCF /* MatchTableViewCell.swift in Sources */,
+				38D3308D1CD0336B00B48DC6 /* UpdateProfileTableViewController.swift in Sources */,
 				3858F1451CBD903400986667 /* CompleteProfileTableViewController.swift in Sources */,
 				388FE3071CB1FA2A00F47DE6 /* Swipe.swift in Sources */,
 				381EF3D71C7CD34000826BE8 /* AppDelegate.swift in Sources */,

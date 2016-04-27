@@ -81,7 +81,7 @@ class WelcomeViewController: UIViewController {
             user.lastName = result.valueForKey("last_name") as? String
             user.viewed = []
             user.roommate = roommate
-            user.ACL = PFACL(user: user)
+//            user.ACL = PFACL(user: user)
             PFObject.saveAllInBackground([user,roommate]) {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
